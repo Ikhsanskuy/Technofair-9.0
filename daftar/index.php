@@ -49,6 +49,13 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
+						<input type="text" name="nama_tim" class="form-control form-password" placeholder="Nama Tim" required>
+                    </div>
+
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
 						<input type="password" name="password" class="form-control form-password" placeholder="Password" required>
                     </div>
 

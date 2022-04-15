@@ -1,10 +1,3 @@
-<?php
-session_start();
-include "../../koneksi.php";
-$login = mysqli_query($conn, "SELECT * FROM tambah WHERE username ='$_SESSION[username]'");
-$data = mysqli_fetch_array($login);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,12 +19,10 @@ $data = mysqli_fetch_array($login);
     <a class="navbar-brand ps-3" href="home.php">TECHNOFAIR 9.0</a>
     <!-- Navbar Search-->
     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-      <div class="input-group">
-      <label style="color:aliceblue;"><?php
-          echo $data['nama_tim'];
-          ?>
-          </label>
-        </div>
+      <!-- <div class="input-group">
+          <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+          <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+        </div> -->
     </form>
     <!-- Navbar-->
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
@@ -84,48 +75,33 @@ $data = mysqli_fetch_array($login);
             <li class="breadcrumb-item active">ini payment</li>
           </ol>
           <div class="timeline">
+          <form action="../config/addpayment.php" method="post" id="msform" enctype="multipart/form-data">
+
+          <label for="KRS">Input Pembayaran</label>
+          <h3 class="fs-subtitle">JPG | JPEG | PNG</h3>
+          <h3 class="fs-subtitle">*Mohon kirim bukti pembayaran dengan jelas</h3>
+          <input type="file" name="pembayaran" placeholder="KRS1"/>
+          <button type="submit" name="submit" class="action-button">Kirim</button>
+
+          </form> 
 
           
             <h1>status pembayaran</h1>
-            
+            <h3>pembayaran telah berhasil silahkan klik link ini</h3>
+            <a href="registered.php">link</a>
 
-            
+            <h3>pembayaran gagal mohon hubungi admin</h3>
+            <a href="report.php">admin</a>
         
-        <?php
-        
-        $pembayaran = $data['pembayaran'];
-
-            $kategori = $data['stat_tf'];
-
-            if($kategori =='1'){
-
-                echo '<h3>pembayaran telah berhasil silahkan klik link ini</h3>
-                <a href="registered.php">link</a>';        
-            }
-
-            elseif($kategori =='0'){
-              echo '<h3>silahkan upload pembayaran</h3>';
-
-              if($pembayaran ){
-                echo '<h1 style="color:green;">Pembayaran berhasil di upload, mohon ditunggu</h1>';
-              }
-            }
-
-            else{
-              echo '<h3>pembayaran gagal mohon hubungi admin</h3>
-              <a href="report.php">admin</a>';
-            }
+        <?
+      //   $stat_tf=
+      //     if ($stat_tf=1){
+      //   echo "Pembayaran telah berhasil silahkan klik ini";
+      // }
+      //   else {
+      //     echo "pembayaran gagal mohon hubungi admin";
+      //   }
         ?>
-
-<form action="../config/addpayment.php" method="post" id="msform" enctype="multipart/form-data">
-
-<label for="KRS">Input Pembayaran</label>
-<h3 class="fs-subtitle">JPG | JPEG | PNG</h3>
-<h3 class="fs-subtitle">*Mohon kirim bukti pembayaran dengan jelas</h3>
-<input type="file" name="pembayaran" placeholder="KRS1"/>
-<button type="submit" name="submit" class="action-button">Kirim</button>
-
-</form> 
 
           </div>
 

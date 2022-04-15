@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background-image: url('../assets/img/regist.png');
+  background-size: cover;">
     <head>
     <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -19,7 +20,8 @@
 
     </head>
 <!-- multistep form -->
-<body>
+<body   style="background-image: url('../assets/img/regist.png');
+  background-size: cover;">
 <form action="config/regist.php" method="post" id="msform" enctype="multipart/form-data">
   <!-- progressbar -->
   <ul id="progressbar">
@@ -31,49 +33,45 @@
   <fieldset>
     <h2 class="fs-title">Data Pribadi</h2>
     <!-- <h3 class="fs-subtitle">This is step 1</h3> -->
-    <input type="text" name="npm" placeholder="NPM" />
-    <input type="text" name="nama" placeholder="Nama" />
-    <input type="text" name="kelas" placeholder="Kelas" />
-    <input type="text" name="nohp" placeholder="Nomor HP" />
-    <input type="text" name="instansi" placeholder="Instansi" />
-    <input type="text" name="idline" placeholder="ID Line" />
-    <input type="text" name="email" placeholder="Email" />
-    <input type="text" name="jurusan" placeholder="Jurusan" />
-    <input type="button" name="next" class="next action-button" value="Next" />
+    <input type="text" name="npm" placeholder="NPM" required=""/>
+    <input type="text" name="nama" placeholder="Nama" required=""/>
+    <input type="text" name="kelas" placeholder="Kelas" required=""/>
+    <input type="number" name="nohp" placeholder="Nomor HP" required=""/>
+    <input type="text" name="instansi" placeholder="Instansi" required=""/>
+    <input type="text" name="idline" placeholder="ID Line" required=""/>
+    <input type="email" name="email" placeholder="Email" required="" />
+    <input type="text" name="jurusan" placeholder="Jurusan" required=""/>
+    <input type="button" name="next" class="next action-button" value="Next"/>
   </fieldset>
 
 
   <fieldset>
     <h2 class="fs-title">Data Tim</h2>
-    <h3 class="fs-subtitle">Your presence on the social network</h3>
    
     <input type="text" name="nama_tim" placeholder="Nama Tim" />
     <!-- <input type="text" name="npm2" placeholder="NPM" /> -->
     <input type="button" name="previous" class="previous action-button" value="Previous" /> 
     <input type="button" name="next" class="next action-button" value="Next" />
-  </fieldset>
-
-
-  <fieldset>
-    <h2 class="fs-title">Input data</h2>
-    <h3 class="fs-subtitle">We will never sell it</h3>
-
-    <label for="pembayaran">Input pembayaran</label><br>
-    <input type="file" name="pembayaran" placeholder="Pembayaran" />
-
-    <label for="KRS">Input KRS 1</label>
-    <input type="file" name="berkas" placeholder="KRS1" />
-
-    <!-- <label for="KRS">Input KRS 2</label>
-    <input type="file" name="krs2" placeholder="Last Name" />
-
-    <label for="KRS">Input KRS 3</label>
-    <input type="file" name="krs3" placeholder="Last Name" /> -->
-    
-    <input type="button" name="previous" class="previous action-button" value="Previous" />
-    <!-- <input type="submit" name="submit" class="submit action-button" value="Submit" /> -->
     <button type="submit" name="submit" class="action-button">Kirim</button>
   </fieldset>
+
+
+  <!-- <fieldset>
+    <h2 class="fs-title">Input data</h2>
+
+    <label for="pembayaran">Input pembayaran</label><br>
+    <h3 class="fs-subtitle">JPG || JPEG || PNG</h3>
+    <input type="file" name="pembayaran" placeholder="Pembayaran" />
+
+    <label for="KRS">Input Berkas</label>
+    <h3 class="fs-subtitle">ZIP || RAR</h3>
+    <h3 class="fs-subtitle">*Data KTM/KRS/Surat Keterangan Aktif disatukan menjadi file zip/rar</h3>
+    <input type="file" name="berkas" placeholder="KRS1"/>
+    
+    <input type="button" name="previous" class="previous action-button" value="Previous" />
+   <input type="submit" name="submit" class="submit action-button" value="Submit" />
+    <button type="submit" name="submit" class="action-button">Kirim</button>
+  </fieldset> -->
 </form>
 
 <script type = "text/javascript" src="scripts.js"></script>  

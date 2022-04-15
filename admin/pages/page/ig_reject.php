@@ -62,33 +62,17 @@
         </nav>
 
 
-    <div class="table-responsive jumbotron">
-    <h2>Data pendaftar reject</h2>
+
+    <div class="jumbotron">
+    <h2>Data pendaftar approve</h2>
     <!-- <a href="../excel/infographic_excel.php" class="btn btn-info">Report Excel</a>  -->
     <a href="../infographic.php" class="btn btn-warning" >Pending</a>
     <a href="ig_approve.php" class="btn btn-success" >Approve</a>
     <a href="ig_reject.php" class="btn btn-danger" >Reject</a>
     </br>
     </br>
-    
+    <div class="row">
 
-    <table id="data-example" class="table table-striped table-bordered table-hover" style="width:100%">
-    <thead>
-        <tr>
-        <!-- <th class= "text-center">no</th> -->
-        <th class= "text-center">No</th>
-            <th class= "text-center">NPM</th>
-            <th class= "text-center" scope="col">Nama</th>
-            <th class= "text-center" scope="col">Kelas</th>
-            <th class= "text-center" height="50px">No HP</th>
-            <th class= "text-center" scope="col">Instansi</th>
-            <th class= "text-center" scope="col">ID Line</th>
-            <th class= "text-center" scope="col">Email</th>
-            <th class= "text-center" scope="col">Jurusan</th>
-             
-        </tr>
-    </thead>
-    <tbody>
     <?php
 
     $no=1;
@@ -97,6 +81,7 @@
         $id = $data['id'];
               $npm = $data['npm'];
               $nama = $data['nama'];
+              $username = $data['nama_tim'];
               $kelas= $data['kelas'];
               $nohp = $data['nohp'];
               $instansi = $data['instansi'];
@@ -105,29 +90,31 @@
               $jurusan = $data['jurusan'];
 
     ?>
-    <tr>
-                <form action="../config/approve/ig_approve.php" method="post">
-                  <input type="hidden" name="id" value="<?php echo $id; ?>">
+ 
+                        <div class="col-md-3 mt-3 text-center">
+                            <div class="card">
+                                <form action="../config/approve/ig_approve.php" method="post">
+                                                                              <input type="hidden" name="id" value="<?php echo $id; ?>">
                   <input type="hidden" name="nama" value="<?php echo $nama; ?>">
                   <input type="hidden" name="email" value="<?php echo $email; ?>">
-                  <td><?=$no?></td>
-                  <td><?=htmlspecialchars(mysqli_real_escape_string($conn,$npm));?></td>
-                  <td><?=htmlspecialchars(mysqli_real_escape_string($conn,$nama));?></td>
-                  <td><?=htmlspecialchars(mysqli_real_escape_string($conn,$kelas));?></td>
-                  <td><?=htmlspecialchars(mysqli_real_escape_string($conn,$nohp));?></td>
-                  <td><?=htmlspecialchars(mysqli_real_escape_string($conn,$instansi));?></td>
-                  <td><?=htmlspecialchars(mysqli_real_escape_string($conn,$idline));?></td>
-                  <td><?=htmlspecialchars(mysqli_real_escape_string($conn,$email));?></td>
-                  <td><?=htmlspecialchars(mysqli_real_escape_string($conn,$jurusan));?></td>
-                
-                 
-                </form>
-              </tr>
+                                <div class="card-header">
+                                    Tim <?= $no ?>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= htmlspecialchars(mysqli_real_escape_string($conn, $username)); ?></h5>
+                                    <p class="card-text">Nama Tim</p>
+
+                                     <a href="#" class="btn btn-info">Detail</a>
+                                     
+                                </div>
+                                </form>
+                            </div>
+                        </div>
     <?php
     $no++;
     }
     ?>
-</table>
+    </div>
 </div>
 
 

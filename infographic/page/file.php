@@ -1,3 +1,9 @@
+<?php
+session_start();
+include "../../koneksi.php";
+$login = mysqli_query($conn, "SELECT * FROM tambah WHERE username ='$_SESSION[username]'");
+$data = mysqli_fetch_array($login);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,10 +27,12 @@
     </a>
     <!-- Navbar Search-->
     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-      <!-- <div class="input-group">
-          <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-          <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-        </div> -->
+    <div class="input-group">
+      <label style="color:aliceblue;"><?php
+          echo $data['nama_tim'];
+          ?>
+          </label>
+        </div>
     </form>
     <!-- Navbar-->
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
@@ -90,20 +98,31 @@
           </form> 
 
 
-          <h1>status berkas</h1>
-           <br>
-           <h3>berkas telah di-approve silahkan klik link ini</h3>
-           <a href=" registered.php">link</a>
+          <?php
+        
+        $pembayaran = $data['pembayaran'];
 
-            <h3>silahkan download template proposal</h3>
-            <a href="registered.php">link</a>
-            <br>
-            <br>
-            <br>
-            <h3>berkas gagal mohon hubungi admin</h3>
-            <a href="report.php">admin</a>
-            <br>
-            <br>
+            $kategori = $data['stat_file'];
+
+            if($kategori =='1'){
+
+                echo '<h3>pembayaran telah berhasil silahkan klik link ini</h3>
+                <a href="registered.php">link</a>';        
+            }
+
+            elseif($kategori =='0'){
+              echo '<h3>silahkan upload pembayaran</h3>';
+
+              if($pembayaran ){
+                echo '<h1 style="color:green;">Pembayaran berhasil di upload, mohon ditunggu</h1>';
+              }
+            }
+
+            else{
+              echo '<h3>pembayaran gagal mohon hubungi admin</h3>
+              <a href="report.php">admin</a>';
+            }
+        ?>
 
           </div>
 

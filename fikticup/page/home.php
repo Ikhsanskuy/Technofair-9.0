@@ -1,10 +1,3 @@
-<?php
-session_start();
-include "../../koneksi.php";
-$login = mysqli_query($conn, "SELECT * FROM tambah WHERE username ='$_SESSION[username]'");
-$data = mysqli_fetch_array($login);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,15 +16,16 @@ $data = mysqli_fetch_array($login);
 <body class="sb-nav-fixed">
   <nav class="sb-topnav navbar navbar-expand navbar-dark">
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="home.php">TECHNOFAIR 9.0</a>
+    <a class="navbar-brand ps-3" href="home.php">
+      <!-- <img src="../../../assets/img/logo/logooo.png" alt="" /> -->
+      TECHNOFAIR 9.0
+    </a>
     <!-- Navbar Search-->
     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-      <div class="input-group">
-      <label style="color:aliceblue;"><?php
-          echo $data['nama_tim'];
-          ?>
-          </label>
-        </div>
+      <!-- <div class="input-group">
+          <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+          <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+        </div> -->
     </form>
     <!-- Navbar-->
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
@@ -76,59 +70,14 @@ $data = mysqli_fetch_array($login);
         </div>
       </nav>
     </div>
-    <div id="layoutSidenav_content">
-      <main>
+    <div id="layoutSidenav_content" style="background-color: white
+      ;">
         <div class="container-fluid px-4">
-          <h1 class="mt-4">ini payment</h1>
+        <img src="../../assets/img/logo.png" style="display: block;width:500px;height:500px;margin-left:auto;margin-right:auto;" >
+          <h1 class="mt-4" style="color: black; text-align:center;">Welcome to TechnoFair 9.0 Dashboard</h1>
+          <p style="color: black; text-align:center;">*Silahkan lengkapi data pada tab myteam, payment & file</p>
           <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item active">ini payment</li>
           </ol>
-          <div class="timeline">
-
-          
-            <h1>status pembayaran</h1>
-            
-
-            
-        
-        <?php
-        
-        $pembayaran = $data['pembayaran'];
-
-            $kategori = $data['stat_tf'];
-
-            if($kategori =='1'){
-
-                echo '<h3>pembayaran telah berhasil silahkan klik link ini</h3>
-                <a href="registered.php">link</a>';        
-            }
-
-            elseif($kategori =='0'){
-              echo '<h3>silahkan upload pembayaran</h3>';
-
-              if($pembayaran ){
-                echo '<h1 style="color:green;">Pembayaran berhasil di upload, mohon ditunggu</h1>';
-              }
-            }
-
-            else{
-              echo '<h3>pembayaran gagal mohon hubungi admin</h3>
-              <a href="report.php">admin</a>';
-            }
-        ?>
-
-<form action="../config/addpayment.php" method="post" id="msform" enctype="multipart/form-data">
-
-<label for="KRS">Input Pembayaran</label>
-<h3 class="fs-subtitle">JPG | JPEG | PNG</h3>
-<h3 class="fs-subtitle">*Mohon kirim bukti pembayaran dengan jelas</h3>
-<input type="file" name="pembayaran" placeholder="KRS1"/>
-<button type="submit" name="submit" class="action-button">Kirim</button>
-
-</form> 
-
-          </div>
-
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

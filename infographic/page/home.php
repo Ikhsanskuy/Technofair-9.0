@@ -1,3 +1,10 @@
+<?php
+session_start();
+include "../../koneksi.php";
+$login = mysqli_query($conn, "SELECT * FROM tambah WHERE username ='$_SESSION[username]'");
+$data = mysqli_fetch_array($login);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,19 +29,18 @@
     </a>
     <!-- Navbar Search-->
     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-      <!-- <div class="input-group">
-          <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-          <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-        </div> -->
+      <div class="input-group">
+          <label style="color:aliceblue;"><?php
+          echo $data['nama_tim'];
+          ?>
+          </label>
+        </div>
     </form>
     <!-- Navbar-->
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-          <!-- <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Activity Log</a></li>
-            <li><hr class="dropdown-divider" /></li> -->
           <li><a class="dropdown-item" href="../config/logout.php">Logout</a></li>
         </ul>
       </li>
@@ -74,7 +80,7 @@
       ;">
         <div class="container-fluid px-4">
         <img src="../../assets/img/logo.png" style="display: block;width:500px;height:500px;margin-left:auto;margin-right:auto;" >
-          <h1 class="mt-4" style="color: black; text-align:center;">Welcome to TechnoFair 9.0 Dashboard</h1>
+          <h1 class="mt-4" style="color: black; text-align:center;">Welcome  TechnoFair 9.0 Dashboard</h1>
           <p style="color: black; text-align:center;">*Silahkan lengkapi data pada tab myteam, payment & file</p>
           <ol class="breadcrumb mb-4">
           </ol>

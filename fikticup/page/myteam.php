@@ -1,8 +1,8 @@
 <?php
 session_start();
 include "../../koneksi.php";
-$login = mysqli_query($conn, "SELECT * FROM tambah WHERE username ='$_SESSION[username]'");
-$data = mysqli_fetch_array($login);
+
+$tampil = mysqli_query($conn, "SELECT * FROM `addmember_ig`")
 ?>
 
 <!DOCTYPE html>
@@ -26,12 +26,10 @@ $data = mysqli_fetch_array($login);
     <a class="navbar-brand ps-3" href="home.php">TECHNOFAIR 9.0</a>
     <!-- Navbar Search-->
     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-    <div class="input-group">
-      <label style="color:aliceblue;"><?php
-          echo $data['nama_tim'];
-          ?>
-          </label>
-        </div>
+      <!-- <div class="input-group">
+          <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+          <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+        </div> -->
     </form>
     <!-- Navbar-->
     <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
@@ -87,7 +85,7 @@ $data = mysqli_fetch_array($login);
             <li>
               <a class="nav-link" href="addmember.php">
                 <i class="nc-icon nc-badge"></i>
-                <p>Ketua</p>
+                <p>Anggota</p>
               </a>
             </li>
             <li>
@@ -104,7 +102,7 @@ $data = mysqli_fetch_array($login);
             </li>
           </ul>
           <div class="timeline">
-            <h1>data ketua</h1>
+<h1>data ketua</h1>
 
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead class="text-center">
